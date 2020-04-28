@@ -24,11 +24,7 @@ def Open_img():
     panel.pack()
 
 
-Addimg = Button(root, text='Choose an image.', fg='white',   bg='black', command=Open_img).place(x=130, y=400)
+Add_img = Button(root, text='Choose an image.', fg='white', bg='black', command=Open_img).place(x=130, y=400)
 Proceed = Button(root, text='Compress.', fg='white',   bg='black').place(x=250, y=400)
-
-if(Addimg):
-    frame = tk.Frame(root, bg="white")  # Subframe init
-    frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
 root.mainloop()
