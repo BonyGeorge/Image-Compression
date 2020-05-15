@@ -2,8 +2,6 @@ import tkinter as tk
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import filedialog
-from PIL import Image, ImageDraw, ImageFont
-import os
 
 root = Tk()
 root.title("Image Compression")
@@ -12,7 +10,7 @@ root.resizable(width=True, height=True)
 
 
 def Open():
-    filename = filedialog.askopenfilename(title='Choose image', filetypes=[("Image File", '.png')])
+    filename = filedialog.askopenfilename(title='Choose image', filetypes=[("Image File", '.jpg')])
     return filename
 
 
@@ -25,10 +23,14 @@ def Open_img():
     panel.image = img
     panel.pack()
 
+def compress():
+    image_name_input = 'test.jpg'
+    img = Image.open(image_name_input)
+    image_name_output = 'Compressed_test.jpg'
+    img.save(image_name_output, optimize=True, quality=50)
+
 
 Add_img = Button(root, text='Choose an image.', fg='white', bg='black', command=Open_img).place(x=130, y=400)
-Proceed = Button(root, text='Compress.', fg='white',   bg='black').place(x=250, y=400)
-quantitu = 0
-QualityBar = Scale(root, orient=HORIZONTAL, length=200 )
-QualityBar.place(x=140, y=450)
+Proceed = Button(root, text='Compress.', fg='white',   bg='black', command=compress).place(x=250, y=400)
+
 root.mainloop()
